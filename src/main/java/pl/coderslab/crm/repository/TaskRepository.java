@@ -1,0 +1,13 @@
+package pl.coderslab.crm.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import pl.coderslab.crm.model.Task;
+
+import java.util.List;
+
+public interface TaskRepository extends JpaRepository<Task, Long> {
+
+    @Query("select t from Task t where t.project.id = :projectId")
+    List<Task> findByProjectId(Long projectId);
+}

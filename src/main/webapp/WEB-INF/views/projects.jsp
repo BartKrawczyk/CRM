@@ -17,31 +17,37 @@
     <%@include file="header.jsp"%>
     <div class="row">
         <div class="col-12">
-            <div class="main-div" style="height:85vh;">
-                <h1 class="display-4" id="welcome">Welcome to GreenMine</h1>
+            <div class="main-div" style="min-height:85vh;">
+                <h1 class="display-4" id="welcome">Projects</h1>
                 <p class="lead">
-                    Happy work is well organised work...
+                    Our Current Projects:
                 </p>
-                <br/>
-                    <h4 class="data-header">The newest projects:</h4>
                 <div class="row">
                     <div class="col-1"></div>
                     <div class="col-10">
                     <table class="table table-hover table-dark" id="index-table">
                         <thead>
                             <tr>
-                                <th style="width: 10%" class="tex">#</th>
+                                <th style="width: 5%">#</th>
+                                <th style="width: 20%; height: auto">Created</th>
                                 <th style="width: 20%; height: auto">Name</th>
-                                <th style="width: 50%; height: auto">Description</th>
-                                <th style="width: 30%; height: auto">Created</th>
+                                <th style="width: 20%; height: auto">Identifier</th>
+                                <th style="width: 5%; height: auto">Active</th>
+                                <th style="width: 10%; height: auto">Tasks</th>
+                                <th style="width: 10%; height: auto">Details</th>
+                                <th style="width: 10%; height: auto">Edit</th>
                             </tr>
                         </thead>
-                        <c:forEach items="${firstFive}" var="project" varStatus="theCount">
+                        <c:forEach items="${projects}" var="project" varStatus="theCount">
                             <tr center-block text-center>
                                 <td>${theCount.count}</td>
-                                <td>${project.name}</td>
-                                <td>${project.description}</td>
                                 <td>${project.created}</td>
+                                <td>${project.name}</td>
+                                <td>${project.identifier}</td>
+                                <td>${project.active}</td>
+                                <td><a href="/tasks?id=${project.id}">Tasks</a></td>
+                                <td><a href="/project/details?id=${project.id}">Details</a></td>
+                                <td><a href="/project/edit?id=${project.id}">Edit</a></td>
                             </tr>
                         </c:forEach>
                     </table>
