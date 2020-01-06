@@ -2,12 +2,15 @@ package pl.coderslab.crm.repository;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.crm.model.Project;
 import pl.coderslab.crm.model.User;
 
 import java.util.List;
 
+@Transactional
 public interface ProjectRepository extends JpaRepository<Project, Long> {
     List<Project> findAll();
 
@@ -20,5 +23,9 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
 
     @Query("select p.users from Project p where p.id = :projectId")
     List<User> findUsersByProjectId(Long projectId);
+
+    @Modifying
+    @Query("update Project p set p.name = ?1, p.description = ?2, p.identifier = ?3, p.www = ?4, p.active = ?5 where p.id = ?6")
+    void setProjectDataById(String name, String description, String identifier, String www, Boolean active, Long id);
 
 }

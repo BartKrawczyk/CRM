@@ -54,15 +54,21 @@ public class ProjectController {
     @GetMapping("/project/edit")
     public String editProject(@RequestParam Long id, Model model) {
         model.addAttribute("project", projectRepository.findById(id).orElseThrow());
-        return "addProject";
+        return "editProject";
     }
 
     @PostMapping("/project/edit")
     public String postEdit(@Valid Project project, BindingResult result) {
         if (result.hasErrors()) {
-            return "addProject";
+            return "editProject";
         }
-        projectRepository.save(project);
+        String name = project.getName();
+        String description = project.getDescription();
+        String identifier = project.setIdentifier(project.getName());
+        String www = project.getWww();
+        Boolean active = project.getActive();
+        Long id = project.getId();
+        projectRepository.setProjectDataById(name, description, identifier, www, active, id);
         return "redirect:/projects";
     }
 

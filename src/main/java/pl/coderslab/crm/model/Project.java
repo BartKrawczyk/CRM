@@ -62,9 +62,10 @@ public class Project {
         return s;
     }
 
-    public void setIdentifier(String identifier) {
-        identifier = removeDiacritics(this.name);
+    public String setIdentifier(String name) {
+        identifier = removeDiacritics(name);
         this.identifier = identifier.replace(" ", "-");
+        return identifier;
     }
 
     public Long getId() {
