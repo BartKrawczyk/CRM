@@ -1,0 +1,77 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 60px;
+    background:
+            radial-gradient(black 15%, transparent 16%) 0 0,
+            radial-gradient(black 15%, transparent 16%) 8px 8px,
+            radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+            radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+    background-color:#282828;
+    background-size:16px 16px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    color: darkgrey;
+}
+
+.jombotron {
+    background-color: lightskyblue;
+    border-radius: 0;
+}
+
+.btn-login {
+    background-color: dimgrey;
+}
+
+.text-logo {
+    font-family: 'Titillium Web', sans-serif;
+    color: green;
+    text-shadow: 1px 1px 0 #000000, 1px 1px 1px rgba(0, 0, 0, 0);
+}
+
+.text-logo:hover {
+    color: green;
+    text-decoration: none;
+}
+
+.form-label-text {
+    color: aliceblue;
+}
+
+.menu-link {
+    font-family: 'Roboto', sans-serif;
+    padding-left: .6rem
+}
+
+.main-div {
+    background-color: darkgrey;
+    padding-top: 2rem;
+    padding-left: 2rem;
+}
+
+.data-header {
+    font-family: 'Roboto', sans-serif;
+    padding-left: .6rem;
+    color: #282828;
+    font-size: 1rem;
+}
+
+
+
+#index-table{
+    font-size: 0.8rem;
+    font-weight: 200;
+    line-height: 1rem;
+    text-align: center;
+}
+
+#welcome {
+    font-family: 'Titillium Web', sans-serif;
+}
+
