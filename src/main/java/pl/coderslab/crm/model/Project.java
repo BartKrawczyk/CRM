@@ -62,10 +62,18 @@ public class Project {
         return s;
     }
 
-    public String setIdentifier(String name) {
+    public String setIdentifierNormalized(String name) {
         identifier = removeDiacritics(name);
         this.identifier = identifier.replace(" ", "-");
         return identifier;
+    }
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 
     public Long getId() {
@@ -129,4 +137,7 @@ public class Project {
         this.www = www;
     }
 
+    public List<Task> getTasks() {
+        return tasks;
+    }
 }

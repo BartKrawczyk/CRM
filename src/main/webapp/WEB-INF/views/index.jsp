@@ -39,7 +39,7 @@
                         <c:forEach items="${firstFive}" var="project" varStatus="theCount">
                             <tr center-block text-center>
                                 <td>${theCount.count}</td>
-                                <td>${project.name}</td>
+                                <td><a href="/project/details?id=${project.id}">${project.name}</a></td>
                                 <td>${project.description}</td>
                                 <td>${project.created}</td>
                             </tr>

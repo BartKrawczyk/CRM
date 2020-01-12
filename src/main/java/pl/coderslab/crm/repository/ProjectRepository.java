@@ -25,7 +25,7 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     List<User> findUsersByProjectId(Long projectId);
 
     @Modifying
-    @Query("update Project p set p.name = ?1, p.description = ?2, p.identifier = ?3, p.www = ?4, p.active = ?5 where p.id = ?6")
-    void setProjectDataById(String name, String description, String identifier, String www, Boolean active, Long id);
+    @Query("update Project p set p.name = ?1, p.description = ?2, p.identifier = ?3, p.www = ?4, p.active = ?5, p.users =?6 where p.id = ?7")
+    void setProjectDataById(String name, String description, String identifier, String www, Boolean active, List<User> users, Long id);
 
 }

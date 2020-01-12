@@ -10,6 +10,7 @@ import pl.coderslab.crm.repository.ProjectRepository;
 import pl.coderslab.crm.repository.UserRepository;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -64,14 +65,16 @@ public class ProjectController {
         }
         String name = project.getName();
         String description = project.getDescription();
-        String identifier = project.setIdentifier(project.getName());
+        String identifier = project.setIdentifierNormalized(project.getName());
         String www = project.getWww();
         Boolean active = project.getActive();
         Long id = project.getId();
-        projectRepository.setProjectDataById(name, description, identifier, www, active, id);
+        List<User> users = project.getUsers();
+
+
+        projectRepository.setProjectDataById(name, description, identifier, www, active, users, id);
         return "redirect:/projects";
     }
-
 
     @ModelAttribute("existingUsers")
     public List<User> users() {

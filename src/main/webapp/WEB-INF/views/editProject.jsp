@@ -41,16 +41,11 @@
                                         <tr><td class="data-header">WWW:</td><td><form:input path="www"/></td>
                                             <td><form:errors path="www" cssClass="error"/></td></tr>
 
-<%--                                        <tr><td class="data-header">Users:</td>--%>
-<%--                                            <td><form:select path="users" multiple="true">--%>
-<%--                                                <form:option value="" label="-- Proszę wybrać --"/>--%>
-<%--                                                <form:options items="${existingUsers}" itemLabel="lastName"  itemValue="id"/>--%>
-<%--                                            </form:select> </td>--%>
-<%--                                            <td><form:errors path="users" cssClass="error"/></td>--%>
-<%--                                        </tr>--%>
+                                        <tr><td class="data-header">Users</td>
+                                            <td><form:checkboxes items="${existingUsers}" path="users" itemLabel="lastName"  itemValue="id"/></td></tr>
 
-                                        <tr><td class="data-header">Active:</td><td><form:checkbox path="active"/></td></tr>
-                                        <tr><td></td><td><input type="submit" value="Update Project" class="btn-login"/> </td></tr>
+                                        <tr><td class="data-header">Active:</td><td><form:checkbox path="active"/> </td></tr>
+                                        <tr><td></td><td><input type="submit" value="Update Project" class="btn-login"/></td></tr>
                                     </form:form>
                                 </div>
                             </div>
